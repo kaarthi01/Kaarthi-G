@@ -400,6 +400,20 @@ section {
 .pillar-body { font-size: 0.82rem; color: var(--slate); line-height: 1.7; }
 
 /* ── SKILLS ── */
+.skills-legend {
+  font-size: 0.72rem;
+  color: var(--slate-dim);
+  margin-top: -2rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-body);
+}
+.skills-legend::before {
+  content: '★';
+  color: var(--gold-light);
+  margin-right: 0.3rem;
+  font-size: 0.6rem;
+  vertical-align: middle;
+}
 .skills-wrapper { display: flex; flex-direction: column; gap: 2rem; }
 .skill-row {
   display: grid;
@@ -898,7 +912,7 @@ footer {
     </div>
     <div class="hero-right fade-up d2">
       <div class="stat-card">
-        <div class="stat-label">Current Program</div>
+        <div class="stat-label">Academic Progress</div>
         <div class="stat-value">B.Tech AIML</div>
         <div class="stat-sub">Kongu Engineering College · 2022–2026</div>
       </div>
@@ -1018,6 +1032,7 @@ footer {
 <section id="skills">
   <div class="section-label fade-up">Expertise</div>
   <h2 class="section-heading fade-up d1">Skills <em>&amp; Technologies</em></h2>
+  <p class="skills-legend fade-up d2">★ denotes primary/most-used skills</p>
   <div class="skills-wrapper">
     <div class="skill-row fade-up d1">
       <div class="skill-row-label">Languages</div>
