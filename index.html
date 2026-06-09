@@ -644,6 +644,87 @@ section {
   color: var(--gold-light);
   letter-spacing: 0.08em;
 }
+.cert-thumb {
+  display: block;
+  margin-top: 0.75rem;
+  width: 100%;
+  max-width: 180px;
+  height: 90px;
+  object-fit: cover;
+  border: 1px solid var(--navy-border);
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity var(--transition), border-color var(--transition), transform var(--transition);
+}
+.cert-thumb:hover {
+  opacity: 1;
+  border-color: var(--gold);
+  transform: scale(1.03);
+}
+.cert-thumb-hint {
+  font-size: 0.62rem;
+  color: var(--slate-dim);
+  margin-top: 0.35rem;
+  font-family: var(--font-ui);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── CERTIFICATE LIGHTBOX ── */
+#cert-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5,8,15,0.92);
+  backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+#cert-lightbox.open { display: flex; }
+#cert-lightbox-inner {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: lb-in 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes lb-in {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+#cert-lightbox-img {
+  display: block;
+  max-width: 90vw;
+  max-height: 82vh;
+  border: 1px solid var(--navy-border);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+  object-fit: contain;
+}
+#cert-lightbox-caption {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--slate-dim);
+}
+#cert-lightbox-close {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 36px; height: 36px;
+  background: var(--navy-mid);
+  border: 1px solid var(--navy-border);
+  color: var(--white-dim);
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  line-height: 1;
+}
+#cert-lightbox-close:hover { background: var(--indigo); color: var(--white); }
 
 /* ── CONTACT ── */
 #contact-section {
@@ -1116,20 +1197,47 @@ footer {
   <div class="certs-grid">
     <div class="cert-card fade-up d1">
       <div class="cert-badge">🍃</div>
-      <div>
+      <div style="flex:1;">
         <div class="cert-name">MongoDB Associate Developer</div>
         <div class="cert-org">MongoDB University</div>
+        <!-- Replace "mongodb-cert.jpg" with your actual image filename -->
+        <img
+          class="cert-thumb"
+          src="src="https://drive.google.com/file/d/1gkz1gLHQvdZWpwOIa9MJk2Hjqv3bpdx2/view?usp=sharing"
+          alt="MongoDB Associate Developer Certificate"
+          onclick="openCertLightbox(this, 'MongoDB Associate Developer — MongoDB University')"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='none';"
+        />
+        <div class="cert-thumb-hint">🔍 Click to view</div>
       </div>
     </div>
     <div class="cert-card fade-up d2">
       <div class="cert-badge">☁</div>
-      <div>
+      <div style="flex:1;">
         <div class="cert-name">Oracle Cloud Infrastructure</div>
         <div class="cert-org">Oracle</div>
+        <!-- Replace "oracle-cert.jpg" with your actual image filename -->
+        <img
+          class="cert-thumb"
+          src="https://drive.google.com/file/d/1I0PgOdHTR4PrinsNclHhB4Z942Fjhzu1/view?usp=sharing"
+          alt="Oracle Cloud Infrastructure Certificate"
+          onclick="openCertLightbox(this, 'Oracle Cloud Infrastructure — Oracle')"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='none';"
+        />
+        <div class="cert-thumb-hint">🔍 Click to view</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ── CERTIFICATE LIGHTBOX ── -->
+<div id="cert-lightbox" onclick="closeCertLightbox(event)">
+  <div id="cert-lightbox-inner">
+    <button id="cert-lightbox-close" onclick="closeCertLightbox(null, true)">✕</button>
+    <img id="cert-lightbox-img" src="" alt="Certificate"/>
+    <div id="cert-lightbox-caption"></div>
+  </div>
+</div>
 
 <hr class="full-divider"/>
 
@@ -1559,6 +1667,27 @@ async function submitForm(btn) {
     btn.disabled = false;
   }
 }
+
+// ── CERTIFICATE LIGHTBOX ──
+function openCertLightbox(imgEl, caption) {
+  const lb    = document.getElementById('cert-lightbox');
+  const lbImg = document.getElementById('cert-lightbox-img');
+  const lbCap = document.getElementById('cert-lightbox-caption');
+  lbImg.src = imgEl.src;
+  lbImg.alt = imgEl.alt;
+  lbCap.textContent = caption || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCertLightbox(event, force) {
+  if (force || (event && event.target === document.getElementById('cert-lightbox'))) {
+    document.getElementById('cert-lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeCertLightbox(null, true);
+});
 
 // ── ACTIVE NAV ──
 const sections = document.querySelectorAll('section[id], #hero');
