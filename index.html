@@ -806,6 +806,20 @@ section {
   line-height: 1.6;
 }
 
+.hero-quicknav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--navy-border);
+}
+.qn-sep {
+  color: var(--navy-muted);
+  font-size: 0.65rem;
+  user-select: none;
+}
+
 /* ── FOOTER ── */
 footer {
   position: relative; z-index: 1;
@@ -882,14 +896,7 @@ footer {
 <!-- ── HEADER ── -->
 <header>
   <a class="header-logo" href="#">Kaarthi<span>.</span>G</a>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#contact-section">Contact</a>
-  </nav>
-  <a class="btn-primary nav-cta" href="mailto:kaarthiglsk@gmail.com">Hire Me</a>
+  <a class="btn-primary nav-cta" href="#contact-section">Hire Me</a>
 </header>
 
 <!-- ── HERO ── -->
@@ -907,7 +914,15 @@ footer {
       </p>
       <div class="hero-actions fade-up d4">
         <a class="btn-primary" href="#projects">View Projects</a>
-        <a class="btn-outline" href="https://github.com/kaarthi01" target="_blank">GitHub Profile →</a>
+        <a class="btn-outline" href="https://github.com/kaarthi01" target="_blank">GitHub →</a>
+      </div>
+      <div class="hero-quicknav fade-up d4">
+        <a class="btn-outline" href="#about">About</a>
+        <a class="btn-outline" href="#projects">Projects</a>
+        <a class="btn-outline" href="#skills">Skills</a>
+        <a class="btn-outline" href="#education">Education</a>
+        <a class="btn-outline" href="#certs">Certifications</a>
+        <a class="btn-outline" href="#contact-section">Contact</a>
       </div>
     </div>
     <div class="hero-right fade-up d2">
