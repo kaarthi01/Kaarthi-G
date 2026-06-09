@@ -437,9 +437,17 @@ section {
   color: var(--white);
 }
 .chip.featured {
-  background: var(--indigo-faint);
-  border-color: rgba(79,110,247,0.3);
-  color: var(--indigo-bright);
+  background: var(--navy-mid);
+  border-color: var(--navy-border);
+  color: var(--white-dim);
+}
+.chip.featured::before {
+  content: '★';
+  font-size: 0.5rem;
+  color: var(--gold-light);
+  margin-right: 0.3rem;
+  vertical-align: middle;
+  line-height: 1;
 }
 
 /* ── EXPERIENCE / EDUCATION ── */
@@ -753,6 +761,37 @@ section {
   box-shadow: 0 8px 30px rgba(79,110,247,0.3);
 }
 
+/* ── RELOCATE NOTE ── */
+.relocate-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(79,110,247,0.06);
+  border: 1px solid rgba(79,110,247,0.2);
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+}
+.relocate-icon {
+  font-size: 1.1rem;
+  color: var(--indigo-bright);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.relocate-label {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--indigo-bright);
+  margin-bottom: 0.2rem;
+}
+.relocate-sub {
+  font-size: 0.78rem;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
 /* ── FOOTER ── */
 footer {
   position: relative; z-index: 1;
@@ -848,18 +887,21 @@ footer {
       <h1 class="hero-name fade-up d1">Kaarthi <strong>G.</strong></h1>
       <p class="hero-role fade-up d2">Machine Learning & Deep Learning</p>
       <p class="hero-desc fade-up d3">
-        Passionate about building intelligent systems that solve real-world healthcare challenges. 
-        Specializing in deep learning architectures, vocal biomarker analysis, and clinical AI — 
-        turning raw signals into life-saving insights.
+        Passionate about building intelligent systems that solve real-world problems. 
+        Specializing in machine learning, deep learning architectures, and data-driven solutions — 
+        turning complex data into meaningful, actionable results.
       </p>
       <div class="hero-actions fade-up d4">
         <a class="btn-primary" href="#projects">View Projects</a>
         <a class="btn-outline" href="https://github.com/kaarthi01" target="_blank">GitHub Profile →</a>
+        <a class="btn-outline" href="#education">Education</a>
+        <a class="btn-outline" href="#skills">Skills</a>
+        <a class="btn-outline" href="#certs">Certifications</a>
       </div>
     </div>
     <div class="hero-right fade-up d2">
       <div class="stat-card">
-        <div class="stat-label">Current Program</div>
+        <div class="stat-label">Acadamic Progress</div>
         <div class="stat-value">B.Tech AIML</div>
         <div class="stat-sub">Kongu Engineering College · 2022–2026</div>
       </div>
@@ -900,27 +942,27 @@ footer {
         I'm a <strong>Machine Learning engineer</strong> with a solid foundation in algorithms, data structures, and statistical modeling — currently pursuing my B.Tech in Artificial Intelligence and Machine Learning at Kongu Engineering College.
       </p>
       <p>
-        My work sits at the intersection of <strong>deep learning and healthcare</strong>. I'm particularly drawn to problems where AI can enable non-invasive, accessible diagnostics — from detecting Parkinson's disease through voice signals to classifying respiratory conditions from raw audio.
+        I enjoy working on problems where <strong>data and intelligence intersect</strong> — building models that learn, generalize, and deliver real value. From audio signal processing to multi-class classification, I bring rigor and curiosity to every project I take on.
       </p>
       <p>
-        I thrive in <strong>collaborative research environments</strong>, love benchmarking models rigorously, and am always looking to push further into emerging technologies like advanced NLP and multi-modal clinical AI.
+        I thrive in <strong>collaborative, fast-moving environments</strong>, love benchmarking and iterating on models, and am always pushing further into emerging areas like advanced NLP, computer vision, and applied deep learning.
       </p>
     </div>
     <div class="about-pillars fade-up d3">
       <div class="pillar">
         <div class="pillar-num">01</div>
-        <div class="pillar-title">Healthcare AI</div>
-        <div class="pillar-body">Building diagnostic models with real clinical applicability — focusing on non-invasive screening and telehealth integration.</div>
+        <div class="pillar-title">Data-Driven Thinking</div>
+        <div class="pillar-body">Translating raw, complex datasets into clean features and actionable models — with a strong emphasis on reproducibility and generalization.</div>
       </div>
       <div class="pillar">
         <div class="pillar-num">02</div>
         <div class="pillar-title">Signal Processing</div>
-        <div class="pillar-body">Expert in audio feature extraction — MFCC, Mel-spectrogram, Chroma, and Spectral features for robust ML pipelines.</div>
+        <div class="pillar-body">Hands-on experience in audio feature extraction — MFCC, Mel-spectrogram, Chroma, and Spectral features for robust ML pipelines.</div>
       </div>
       <div class="pillar">
         <div class="pillar-num">03</div>
         <div class="pillar-title">Model Engineering</div>
-        <div class="pillar-body">From CNN architectures to ensemble benchmarks — rigorous evaluation using Accuracy, F1, and ROC-AUC metrics.</div>
+        <div class="pillar-body">From CNN architectures to ensemble benchmarks — rigorous evaluation using Accuracy, F1, ROC-AUC, Precision, and Recall.</div>
       </div>
     </div>
   </div>
@@ -1108,9 +1150,16 @@ footer {
   <div class="contact-layout">
     <div class="fade-up d2">
       <p class="contact-intro">
-        I'm actively seeking internship and full-time opportunities in AI/ML engineering — particularly in healthcare, research, and applied deep learning. 
+        I'm actively seeking internship and full-time opportunities in AI/ML engineering — across research, product, and industry applications.
         Feel free to reach out through any channel below.
       </p>
+      <div class="relocate-note fade-up d2">
+        <span class="relocate-icon">✈</span>
+        <div>
+          <div class="relocate-label">Open to Relocation</div>
+          <div class="relocate-sub">Based in Ooty, India — willing to relocate anywhere for the right opportunity.</div>
+        </div>
+      </div>
       <div class="contact-links">
         <a class="contact-link-row" href="mailto:kaarthiglsk@gmail.com">
           <div class="clr-icon">✉</div>
