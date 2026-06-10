@@ -1596,6 +1596,7 @@ function openVideoModal() {
   iframe.src = iframe.dataset.src;
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
 }
 function closeVideoModal(e) {
   const modal = document.getElementById('video-modal');
@@ -1603,6 +1604,7 @@ function closeVideoModal(e) {
   modal.classList.remove('open');
   iframe.src = '';
   document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
 
