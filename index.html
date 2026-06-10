@@ -1590,21 +1590,26 @@ footer {
 })();
 
 // ── VIDEO MODAL ──
+let _scrollY = 0;
 function openVideoModal() {
   const modal = document.getElementById('video-modal');
   const iframe = document.getElementById('video-iframe');
+  _scrollY = window.scrollY;
   iframe.src = iframe.dataset.src;
   modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.documentElement.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${_scrollY}px`;
+  document.body.style.width = '100%';
 }
-function closeVideoModal(e) {
+function closeVideoModal() {
   const modal = document.getElementById('video-modal');
   const iframe = document.getElementById('video-iframe');
   modal.classList.remove('open');
   iframe.src = '';
-  document.body.style.overflow = '';
-  document.documentElement.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, _scrollY);
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
 
