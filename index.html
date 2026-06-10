@@ -642,6 +642,16 @@ section {
   backdrop-filter: blur(6px);
 }
 #video-modal.open { display: flex; }
+#video-modal-2 {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+#video-modal-2.open { display: flex; }
 .modal-box {
   background: var(--navy);
   border: 1px solid var(--navy-border);
@@ -1085,6 +1095,29 @@ footer {
         <li>Built a CNN model benchmarked against SVM, Random Forest, XGBoost, and LSTM; evaluated using Accuracy, F1-score, and ROC-AUC.</li>
         <li>Integrated into a real-time telehealth screening interface enabling non-invasive, remote diagnosis.</li>
       </ul>
+      <div class="project-demo-link" onclick="openVideoModal2()">
+        <span class="demo-icon">▶</span>
+        <span class="demo-text">Project Demo</span>
+        <span class="demo-arrow">→</span>
+      </div>
+
+      <!-- Video Modal 2 -->
+      <div id="video-modal-2" onclick="closeVideoModal2()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+          <div class="modal-header">
+            <span class="modal-title">Project Demo</span>
+            <button class="modal-close" onclick="closeVideoModal2()">✕</button>
+          </div>
+          <iframe
+            id="video-iframe-2"
+            src=""
+            data-src="https://drive.google.com/file/d/16UPvg6DlWulWFNuqITvmWczZfjwi75nd/preview"
+            allow="autoplay"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
       <div class="project-tags">
         <span class="project-tag">Python</span>
         <span class="project-tag">TensorFlow</span>
@@ -1611,7 +1644,29 @@ function closeVideoModal() {
   document.body.style.width = '';
   window.scrollTo(0, _scrollY);
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
+function openVideoModal2() {
+  const modal = document.getElementById('video-modal-2');
+  const iframe = document.getElementById('video-iframe-2');
+  _scrollY = window.scrollY;
+  iframe.src = iframe.dataset.src;
+  modal.classList.add('open');
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${_scrollY}px`;
+  document.body.style.width = '100%';
+}
+function closeVideoModal2() {
+  const modal = document.getElementById('video-modal-2');
+  const iframe = document.getElementById('video-iframe-2');
+  modal.classList.remove('open');
+  iframe.src = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, _scrollY);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeVideoModal(); closeVideoModal2(); }
+});
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
