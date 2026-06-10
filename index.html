@@ -743,6 +743,25 @@ section {
   letter-spacing: 0.08em;
 }
 
+.cert-name.cert-link {
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.cert-name.cert-link:hover {
+  color: var(--indigo-bright);
+  text-decoration: underline;
+}
+#cert-modal {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+#cert-modal.open { display: flex; }
+
 /* ── CONTACT ── */
 #contact-section {
   padding: 7rem 4rem 6rem;
@@ -1262,16 +1281,27 @@ footer {
     <div class="cert-card fade-up d1">
       <div class="cert-badge">🍃</div>
       <div>
-        <div class="cert-name">MongoDB Associate Developer</div>
+        <div class="cert-name cert-link" onclick="openCertModal('https://drive.google.com/file/d/1gkz1gLHQvdZWpwOIa9MJk2Hjqv3bpdx2/preview')">MongoDB Associate Developer</div>
         <div class="cert-org">MongoDB University</div>
       </div>
     </div>
     <div class="cert-card fade-up d2">
       <div class="cert-badge">☁</div>
       <div>
-        <div class="cert-name">Oracle Cloud Infrastructure</div>
+        <div class="cert-name cert-link" onclick="openCertModal('https://drive.google.com/file/d/1I0PgOdHTR4PrinsNclHhB4Z942Fjhzu1/preview')">Oracle Cloud Infrastructure</div>
         <div class="cert-org">Oracle</div>
       </div>
+    </div>
+  </div>
+
+  <!-- Cert Modal -->
+  <div id="cert-modal" onclick="closeCertModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span class="modal-title">Certificate</span>
+        <button class="modal-close" onclick="closeCertModal()">✕</button>
+      </div>
+      <iframe id="cert-iframe" src="" style="width:100%;height:500px;border:none;display:block;"></iframe>
     </div>
   </div>
 </section>
@@ -1636,6 +1666,30 @@ footer {
   resize();
   draw();
 })();
+
+// ── CERT MODAL ──
+let _certScrollY = 0;
+function openCertModal(src) {
+  const modal = document.getElementById('cert-modal');
+  const iframe = document.getElementById('cert-iframe');
+  _certScrollY = window.scrollY;
+  iframe.src = src;
+  modal.classList.add('open');
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${_certScrollY}px`;
+  document.body.style.width = '100%';
+}
+function closeCertModal() {
+  const modal = document.getElementById('cert-modal');
+  const iframe = document.getElementById('cert-iframe');
+  modal.classList.remove('open');
+  iframe.src = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  window.scrollTo(0, _certScrollY);
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeCertModal(); } });
 
 // ── VIDEO MODAL ──
 let _scrollY = 0;
