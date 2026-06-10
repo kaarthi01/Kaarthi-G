@@ -67,6 +67,20 @@ body {
   pointer-events: none;
 }
 
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--indigo-dim);
+  display: block;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.nav-avatar:hover {
+  border-color: var(--indigo-bright);
+  transform: scale(1.08);
+}
+
 /* ── NAVBAR ── */
 header {
   position: fixed; top: 0; left: 0; right: 0;
@@ -180,7 +194,6 @@ nav a:hover { color: var(--white); border-left-color: var(--navy-border); }
 .hero-name strong {
   font-weight: 700;
   font-style: italic;
-  color: var(--indigo-bright);
 }
 .hero-role {
   font-family: var(--font-display);
@@ -980,7 +993,9 @@ footer {
 
 <!-- ── HEADER ── -->
 <header>
-  <a class="header-logo" href="#">Kaarthi<span>.</span>G</a>
+  <a class="header-logo" href="#">
+    <img src="https://drive.google.com/thumbnail?id=1-Hcv0nGuI-0AvaC4E7L5bHyvvAqMT47j&sz=w100" alt="Kaarthi G Avatar" class="nav-avatar"/>
+  </a>
   <a class="btn-primary nav-cta" href="#contact-section">Hire Me</a>
 </header>
 
