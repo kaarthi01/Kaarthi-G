@@ -1111,8 +1111,8 @@ footer {
       </div>
 
       <!-- Video Modal -->
-      <div id="video-modal" onclick="closeVideoModal(event)">
-        <div class="modal-box">
+      <div id="video-modal" onclick="closeVideoModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
           <div class="modal-header">
             <span class="modal-title">Project Demo</span>
             <button class="modal-close" onclick="closeVideoModal()">✕</button>
@@ -1598,14 +1598,13 @@ function openVideoModal() {
   document.body.style.overflow = 'hidden';
 }
 function closeVideoModal(e) {
-  if (e && e.target !== document.getElementById('video-modal') && !e.target.classList.contains('modal-close')) return;
   const modal = document.getElementById('video-modal');
   const iframe = document.getElementById('video-iframe');
   modal.classList.remove('open');
   iframe.src = '';
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal({}); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoModal(); });
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
