@@ -1087,27 +1087,27 @@ footer {
         I'm a <strong>Machine Learning engineer</strong> with a solid foundation in algorithms, data structures, and statistical modeling — currently pursuing my B.Tech in Artificial Intelligence and Machine Learning at Kongu Engineering College.
       </p>
       <p>
-        I enjoy working on problems where <strong>data and intelligence intersect</strong> — building models that learn, generalize, and deliver real value. From audio signal processing to multi-class classification, I bring rigor and curiosity to every project I take on.
+        I enjoy working on problems where <strong>data, intelligence, and real-world impact intersect</strong> — from training deep learning models on audio signals, to building full-stack AI platforms with RAG pipelines and LLM integrations that users can interact with live.
       </p>
       <p>
-        I thrive in <strong>collaborative, fast-moving environments</strong>, love benchmarking and iterating on models, and am always pushing further into emerging areas like advanced NLP, computer vision, and applied deep learning.
+        I thrive in <strong>collaborative, fast-moving environments</strong>, love shipping things that work end-to-end, and am always pushing further into emerging areas like GenAI, retrieval-augmented generation, and applied deep learning.
       </p>
     </div>
     <div class="about-pillars fade-up d3">
       <div class="pillar">
         <div class="pillar-num">01</div>
-        <div class="pillar-title">Data-Driven Thinking</div>
-        <div class="pillar-body">Translating raw, complex datasets into clean features and actionable models — with a strong emphasis on reproducibility and generalization.</div>
+        <div class="pillar-title">AI & Deep Learning</div>
+        <div class="pillar-body">Building and evaluating CNN, LSTM, and ensemble models — from audio feature extraction to multi-class classification with rigorous Accuracy, F1, and ROC-AUC benchmarking.</div>
       </div>
       <div class="pillar">
         <div class="pillar-num">02</div>
-        <div class="pillar-title">Signal Processing</div>
-        <div class="pillar-body">Hands-on experience in audio feature extraction — MFCC, Mel-spectrogram, Chroma, and Spectral features for robust ML pipelines.</div>
+        <div class="pillar-title">GenAI & RAG Systems</div>
+        <div class="pillar-body">Designing end-to-end RAG pipelines with LangChain, Groq LLaMA, ChromaDB, hybrid search, and cross-encoder re-ranking — delivering grounded, sourced answers at enterprise level.</div>
       </div>
       <div class="pillar">
         <div class="pillar-num">03</div>
-        <div class="pillar-title">Model Engineering</div>
-        <div class="pillar-body">From CNN architectures to ensemble benchmarks — rigorous evaluation using Accuracy, F1, ROC-AUC, Precision, and Recall.</div>
+        <div class="pillar-title">Applied AI</div>
+        <div class="pillar-body">Turning research and models into real working systems — from voice-based disease detection to live RAG platforms — bridging the gap between AI theory and practical deployment.</div>
       </div>
     </div>
   </div>
@@ -1120,49 +1120,7 @@ footer {
   <div class="section-label fade-up">Work</div>
   <h2 class="section-heading fade-up d1">Selected <em>Projects</em></h2>
   <div class="projects-grid">
-    <div class="project-card fade-up d1">
-      <div class="project-type">Machine Learning · Healthcare AI</div>
-      <div class="project-title">Parkinson's Disease Prediction via Voice Signal Analysis</div>
-      <ul class="project-points">
-        <li>Utilized the UCI Parkinson's Voice Dataset — extracted MFCC, Mel-spectrogram, Chroma, and Spectral features for robust audio representation.</li>
-        <li>Applied preprocessing, PCA/RFE, and data augmentation with class balancing to improve generalization on imbalanced data.</li>
-        <li>Built a CNN model benchmarked against SVM, Random Forest, XGBoost, and LSTM; evaluated using Accuracy, F1-score, and ROC-AUC.</li>
-        <li>Integrated into a real-time telehealth screening interface enabling non-invasive, remote diagnosis.</li>
-      </ul>
-      <div class="project-demo-link" onclick="openVideoModal2()">
-        <span class="demo-icon">▶</span>
-        <span class="demo-text">Project Demo</span>
-        <span class="demo-arrow">→</span>
-      </div>
-
-      <!-- Video Modal 2 -->
-      <div id="video-modal-2" onclick="closeVideoModal2()">
-        <div class="modal-box" onclick="event.stopPropagation()">
-          <div class="modal-header">
-            <span class="modal-title">Project Demo</span>
-            <button class="modal-close" onclick="closeVideoModal2()">✕</button>
-          </div>
-          <iframe
-            id="video-iframe-2"
-            src=""
-            data-src="https://drive.google.com/file/d/16UPvg6DlWulWFNuqITvmWczZfjwi75nd/preview"
-            allow="autoplay"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">TensorFlow</span>
-        <span class="project-tag">CNN</span>
-        <span class="project-tag">SVM</span>
-        <span class="project-tag">XGBoost</span>
-        <span class="project-tag">LSTM</span>
-        <span class="project-tag">UCI Dataset</span>
-      </div>
-    </div>
-    <div class="project-card gold-top fade-up d2">
+    <div class="project-card gold-top fade-up d1">
       <div class="project-type">Deep Learning · Vocal Biomarkers</div>
       <div class="project-title">AI-Based Vocal Biomarker Framework for Disease Detection</div>
       <ul class="project-points">
@@ -1226,6 +1184,34 @@ footer {
         <span class="project-tag">Render</span>
       </div>
     </div>
+    <div class="project-card fade-up d4" style="grid-column: 1 / -1;">
+      <div class="project-type">GenAI · RAG · LLM · Full Stack</div>
+      <div class="project-title">Docara — Domain-Specific RAG Document Intelligence Platform</div>
+      <ul class="project-points">
+        <li>Built an end-to-end RAG pipeline using LangChain + Groq LLaMA 3.3 70B enabling users to upload any PDF and query it in natural language with source page attribution on every answer.</li>
+        <li>Implemented <strong style="color:var(--white-dim)">Hybrid Search (BM25 + vector)</strong> and <strong style="color:var(--white-dim)">Cross-Encoder Re-ranking</strong> — enterprise-level retrieval techniques that significantly outperform standard similarity search.</li>
+        <li>Built multi-document chat allowing simultaneous querying across multiple PDFs with merged context retrieval; one-click document summary and export chat as PDF.</li>
+        <li>Integrated Google OAuth for per-user authentication with persistent document libraries and chat history saved to SQLite — deployed live on Render with a Perplexity-inspired dark UI.</li>
+      </ul>
+      <a class="project-demo-link" href="https://docara.onrender.com" target="_blank" style="text-decoration:none; display:inline-flex; margin-top:0.5rem;">
+        <span class="demo-icon">⟢</span>
+        <span class="demo-text">Live Demo</span>
+        <span class="demo-arrow">→</span>
+      </a>
+      <div class="project-tags" style="margin-top:1rem;">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Flask</span>
+        <span class="project-tag">LangChain</span>
+        <span class="project-tag">Groq LLaMA 3.3 70B</span>
+        <span class="project-tag">ChromaDB</span>
+        <span class="project-tag">HuggingFace</span>
+        <span class="project-tag">Hybrid Search</span>
+        <span class="project-tag">Re-ranking</span>
+        <span class="project-tag">Google OAuth</span>
+        <span class="project-tag">SQLite</span>
+        <span class="project-tag">Render</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1255,6 +1241,8 @@ footer {
         <span class="chip">Pandas</span>
         <span class="chip">Matplotlib</span>
         <span class="chip">OpenCV</span>
+        <span class="chip featured">LangChain</span>
+        <span class="chip">HuggingFace</span>
       </div>
     </div>
     <div class="skill-row fade-up d3">
@@ -1268,6 +1256,10 @@ footer {
         <span class="chip">SVM</span>
         <span class="chip">XGBoost</span>
         <span class="chip">Random Forest</span>
+        <span class="chip featured">RAG</span>
+        <span class="chip featured">LLM</span>
+        <span class="chip">Hybrid Search</span>
+        <span class="chip">Re-ranking</span>
       </div>
     </div>
     <div class="skill-row fade-up d1">
@@ -1291,6 +1283,8 @@ footer {
         <span class="chip">VS Code</span>
         <span class="chip">MongoDB</span>
         <span class="chip">Oracle Cloud</span>
+        <span class="chip featured">ChromaDB</span>
+        <span class="chip">Groq</span>
       </div>
     </div>
   </div>
